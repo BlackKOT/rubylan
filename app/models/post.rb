@@ -4,7 +4,7 @@ require 'cleaner'
 
 class Post < ActiveRecord::Base
   belongs_to :category
-  has_many :taggables, as: :tagged
+  has_many :taggables, as: :tagged, dependent: :destroy
   has_many :tags, through: :taggables
 
   validates :name, :body, :category_id, presence: true
