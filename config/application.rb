@@ -14,5 +14,8 @@ module Rubylan
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.components_path = Rails.root.join( 'app', 'views', 'components' )
+
+    config.autoload_paths += Dir[Rails.root.join('lib', '*.{rb,yml}').to_s]
   end
 end

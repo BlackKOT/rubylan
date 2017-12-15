@@ -1,0 +1,29 @@
+// VERSION: 0.2
+// NOTE: update the version to regenerate the server template
+
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+
+Vue.component( 'a-clock', {
+  props: [ 'init-hour', 'init-min' ],
+  data: function() {
+    return {
+      hour: '',
+      min: ''
+    }
+  },
+  template: "<%= slim_comp_render( 'clock/clock.html.slim' ) %>",
+  created: function () {
+    console.log( '[clock] created' );
+    this.dt = new Date( Date.UTC( 2000, 0, 1, this.initHour, this.initMin - 1, 0 ) );
+    this.tick();
+    window.setInterval( this.tick, 60000 );
+  },
+  methods: {
+    tick: function() {
+      console.log( '[clock] tick' );
+      this.dt.setUTCMinutes( this.dt.getUTCMinutes() + 1 );
+      this.hour = ( ( this.dt.getUTCHours() < 10 ) ? '0' : '' ) + this.dt.getUTCHours();
+      this.min = ( ( this.dt.getUTCMinutes() < 10 ) ? '0' : '' ) + this.dt.getUTCMinutes();
+    }
+  }
+});

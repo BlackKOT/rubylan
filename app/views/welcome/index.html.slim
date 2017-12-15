@@ -1,0 +1,10 @@
+h1 Ruby
+
+#posts
+  - @posts.each do |post|
+    = post.name
+
+#app
+  a-clock init-hour="#{Time.now.hour}" init-min="#{Time.now.min}" name="a-clock"
+  a-clock init-hour="#{Time.now.hour+5}" init-min="#{Time.now.min}" name="a-clock"
+  a-clock init-hour="#{Time.now.hour-3}" init-min="#{Time.now.min}" name="a-clock"
