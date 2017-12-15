@@ -572,3 +572,9 @@ Taggable.create!([
   {id: 438, tagged_type: "Post", tagged_id: 2164, tag_id: 26, created_at: "2015-10-07 10:48:51", updated_at: "2015-10-07 10:48:51"},
   {id: 439, tagged_type: "Post", tagged_id: 2165, tag_id: 5, created_at: "2015-10-10 14:34:44", updated_at: "2015-10-10 14:34:44"}
 ])
+
+(ActiveRecord::Base.connection.tables - ['schema_migrations', 'ar_internal_metadata']).each do |table|
+  query = "select setval('#{table}_id_seq', (select max(id) from #{table}) + 1)"
+  ActiveRecord::Base.connection.execute(query)
+end
+
