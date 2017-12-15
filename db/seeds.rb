@@ -1,7 +1,3 @@
-User.create!([
-  {id: 11, email: "jeyboykot@gmail.com", encrypted_password: "$2a$10$XXU6H7s/dRbxxnOGIkJWU.rfP1GVGa.Te72dk9MPZ6OtzZ3ldpDF.", is_admin: false, reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: "2015-07-22 15:26:44", sign_in_count: 1, current_sign_in_at: "2015-07-22 15:26:44", last_sign_in_at: "2015-07-22 15:26:44", current_sign_in_ip: "5.248.21.12", last_sign_in_ip: "5.248.21.12", created_at: "2015-07-22 12:47:23", updated_at: "2015-07-22 15:26:44", invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil},
-  {id: 10, email: "jeyboy1985@gmail.com", encrypted_password: "$2a$10$Plt7kNIYSuvsiYKuB8TxGec6g9gCe6SaLWGpKdAXziY0RphUAoH66", is_admin: true, reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: "2017-12-12 12:44:04", sign_in_count: 29, current_sign_in_at: "2017-12-12 12:44:04", last_sign_in_at: "2016-11-02 23:03:56", current_sign_in_ip: "46.119.8.113", last_sign_in_ip: "178.137.112.23", created_at: "2013-12-01 21:06:52", updated_at: "2017-12-12 12:44:04", invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil}
-])
 Category.create!([
   {id: 1, name: "JS", created_at: "2013-11-11 20:57:21", updated_at: "2013-11-11 20:57:21", icon: "javascript"},
   {id: 2, name: "Ruby", created_at: "2013-11-17 09:54:10", updated_at: "2013-11-17 09:54:10", icon: "ruby"},
