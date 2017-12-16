@@ -9,7 +9,8 @@ class Post < ActiveRecord::Base
 
   validates :name, :body, :category_id, presence: true
 
-  after_validation :unescape_and_prepare
+  #TODO enable after changing code to pretty_preview integer
+  # after_validation :unescape_and_prepare
 
   private
 

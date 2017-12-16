@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 20171215135616) do
     t.bigint "category_id"
     t.text "body", null: false
     t.text "pretty_body", null: false
-    t.text "pretty_preview", null: false
+    t.integer "pretty_preview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "author_id"
-    t.string "author_name"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["name"], name: "index_posts_on_name"
   end
