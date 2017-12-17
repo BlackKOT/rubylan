@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215135616) do
+ActiveRecord::Schema.define(version: 20171217123350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171215135616) do
     t.bigint "category_id"
     t.text "body", null: false
     t.text "pretty_body", null: false
-    t.integer "pretty_preview"
+    t.integer "pretty_preview", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
@@ -51,4 +51,6 @@ ActiveRecord::Schema.define(version: 20171215135616) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "posts", "categories", on_update: :cascade, on_delete: :nullify
+  add_foreign_key "taggables", "tags", on_update: :cascade, on_delete: :cascade
 end

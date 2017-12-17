@@ -8,5 +8,6 @@ class CreateTaggable < ActiveRecord::Migration[5.1]
       t.timestamps null: false
     end
 
+    add_foreign_key :taggables, :tags, on_delete: :cascade, on_update: :cascade
   end
 end

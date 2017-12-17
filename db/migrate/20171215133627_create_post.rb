@@ -11,5 +11,7 @@ class CreatePost < ActiveRecord::Migration[5.1]
     end
 
     add_index :posts, :name
+
+    add_foreign_key :posts, :categories, on_delete: :nullify, on_update: :cascade
   end
 end
