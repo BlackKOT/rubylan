@@ -1,0 +1,60 @@
+
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+
+Vue.component( 'posts', {
+
+  data: function() {
+    return {
+      posts: [],
+      searchString: "",  
+    }
+  },
+
+  template: "<%= slim_comp_render( 'posts/posts.html.slim' ) %>",
+//  created: function () {
+//    console.log( '[clock] created' );
+//    this.dt = new Date( Date.UTC( 2000, 0, 1, this.initHour, this.initMin - 1, 0 ) );
+//    this.tick();
+//    window.setInterval( this.tick, 60000 );
+//  },
+
+  created: function() {
+      var that = this;
+      $.ajax({
+          url: '/posts.json',
+          success: function(res) {
+              that.posts = res;
+          }
+      });
+//      true
+  },
+  computed: {
+      filteredPosts: function () {
+          var posts_array = this.posts,
+              searchString = this.searchString;
+
+          if(!searchString){
+              return posts_array;
+          }
+
+          searchString = searchString.trim().toLowerCase();
+
+          posts_array = posts_array.filter(function(item){
+              if(item.name.toLowerCase().indexOf(searchString) !== -1){
+                  return item;
+              }
+          })
+
+
+          return posts_array
+      }
+  }
+//  methods: {
+//    tick: function() {
+//      console.log( '[clock] tick' );
+//      this.dt.setUTCMinutes( this.dt.getUTCMinutes() + 1 );
+//      this.hour = ( ( this.dt.getUTCHours() < 10 ) ? '0' : '' ) + this.dt.getUTCHours();
+//      this.min = ( ( this.dt.getUTCMinutes() < 10 ) ? '0' : '' ) + this.dt.getUTCMinutes();
+//    }
+//  }
+});

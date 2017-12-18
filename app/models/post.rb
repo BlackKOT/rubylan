@@ -12,6 +12,15 @@ class Post < ActiveRecord::Base
   #TODO enable after changing code to pretty_preview integer
   # after_validation :unescape_and_prepare
 
+  def as_json(options)
+    # this example ignores the user's options
+    super(only: [:name, ], methods: [:path])
+  end
+
+  def path
+    Rails.application.routes.url_helpers.post_path(self)
+  end
+
   private
 
   def unescape_and_prepare

@@ -1,0 +1,14 @@
+form
+  input type="text" v-model="searchString" placeholder="Please input search substring here ..."
+
+  ul
+    li v-for="post in filteredPosts"
+      a v-bind:href="post.path"
+        | {{post.name}}
+
+/.component-clock
+/  span.hour
+/    | {{hour}}
+/  | :
+/  span.min
+/    | {{min}}
