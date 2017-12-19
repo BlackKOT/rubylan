@@ -1,6 +1,11 @@
 h1 Ruby
 posts name="posts"
 
+paginate :page-count="10" container-class="pagination" prev-text="prev" next-text="next" :click-handler="clickCallback"
+  span slot="prevContent"
+    | Changed previous button
+  span slot="nextContent"
+    | Changed next button</span>
 
 /a-clock init-hour="#{Time.now.hour}" init-min="#{Time.now.min}" name="a-clock"
 /a-clock init-hour="#{Time.now.hour+5}" init-min="#{Time.now.min}" name="a-clock"

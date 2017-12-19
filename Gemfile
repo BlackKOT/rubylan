@@ -33,6 +33,8 @@ gem 'slim-rails'
 
 # include Vue 2.0
 gem 'vuejs-rails'
+gem 'rails-vue-loader'
+
 
 # highliter
 gem 'coderay'
